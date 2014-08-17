@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3D旋转demo</title>
+    <script src="js/jquery-1.11.1.min.js"></script>
+<style>
+    .win{
+        height:200px;
+        width:200px; 
+        margin:0 auto;
+
+        -webkit-perspective:800;
+        -webkit-perspective-origin:50% 50%;
+        -webkit-transition: preserve-3d;
+    }
+
+    .block{
+        display:block;
+        height:180px;
+        width:180px;
+        background-color: #69c;
+
+        color:white;
+        font-size: 100px;
+        font-weight: bold;
+        font-family: Microsoft YaHei;
+        text-align: center;
+        line-height: 180px;
+
+        -webkit-transform-origin:center;
+        -webkit-transition: -webkit-transform 1s linear;
+    }
+    input{
+        display:block;
+        width:360px;
+        margin: 20px auto;
+    }
+    p{
+        width:100%;
+        text-align: center;
+    }
+</style>
+<script>
+    function rotate(){
+        console.log("x:"+x+" y:"+y+" z:"+z);
+        var x = $("#xx").val();
+        var y = $("#yy").val();
+        var z = $("#zz").val();
+        $(".block").css("-webkit-transform", "rotateX("+x+"deg) rotateY("+y+"deg) rotateZ("+z+"deg)");
+
+        $("#xp").text(x);
+        $("#yp").text(y);
+        $("#zp").text(z);
+    }
+</script>
+</head>
+<body>
+    <div class="win">
+        <span class="block">正</span>
+    </div>
+    <p>X:<span id="xp">0</span> deg</p>
+    <input type="range" min="-360" max="360" value="0" id="xx" onchange="rotate()">
+    <p>Y:<span id="yp">0</span> deg</p>
+    <input type="range" min="-360" max="360" value="0" id="yy" onchange="rotate()">
+    <p>Z:<span id="zp">0</span> deg</p>
+    <input type="range" min="-360" max="360" value="0" id="zz" onchange="rotate()">
+</body>
+</html>
