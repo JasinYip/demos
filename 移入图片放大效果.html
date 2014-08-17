@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>放大镜效果</title>
+<style>
+  #pic{
+    height:480px;
+        width:480px;
+        margin:0 auto;
+        background-color: #ccc;
+        overflow: hidden;
+    
+        -webkit-perspective: 800;
+        -webkit-perspective-origin: 50% 50%;
+        -webkit-transition: preserve-3d;
+  }
+  #pic img{
+    margin:-240px 0 0 -240px;
+    -webkit-transform: scale(.5);
+    -webkit-transition: 1s;}
+  #pic img:hover{
+    -webkit-transform: scale(.6);
+  }
+</style>
+</head>
+<body>
+  <div id="pic">
+    <img src="img/pic.jpg">
+  </div>
+</body>
+</html>
